@@ -1,0 +1,116 @@
+@import "tokens";
+
+.modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 200;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal.startScreen {
+	background: $color-base url("../img/purty_wood.png");
+
+	&.off {
+		display: none;
+	}
+
+	.content {
+		margin: 0 1em;
+		padding: 2em;
+		background: $color-neutral-dark;
+		color: $color-neutral-light;
+		text-align: center;
+
+		.logo {
+			margin: 0 0 4em;
+
+			&:after {
+				background: $color-neutral-light;
+			}
+
+			.logoSymbol::before {
+				border: 1px solid $color-neutral-light;
+			}
+		}
+
+		p {
+			margin: 2em 0;
+		}
+
+		.startButton {
+			padding: .75em 0.6em .75em 1em;
+
+			font-family: $font-family-secondary;
+			font-size: 16px;
+			font-weight: 700;
+			line-height: 1.5;
+			letter-spacing: 0.4em;
+			text-align: center;
+			color: #fff;
+			text-transform: uppercase;
+
+			background: none;
+			border: 1px solid $color-neutral-light;
+		}
+	}
+}
+
+
+.modal.help {
+	color: $color-neutral-light;
+	background: rgba(0, 0, 0, 0.4);
+
+	&.off {
+		display: none;
+	}
+
+
+	.closeOverlay {
+		position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+		z-index: 300;
+	}
+
+	.helpContent {
+		position: relative;
+		margin: 0 1em;
+		z-index: 400;
+
+		padding: 2em;
+		max-height: 80vh;
+    overflow: auto;
+
+		background: $color-neutral-dark;
+
+		img {
+			margin: 0 auto 2em;
+			display: block;
+			width: 4em;
+		}
+
+		ul li {
+	    margin-left: 1.5em;
+	    margin-bottom: 1.5em;
+	    line-height: 1.5;
+		}
+	}
+}
+
+
+@media only screen and (orientation : landscape) {
+
+	.modal.startScreen .content .logo {
+    margin: 0 0 4em;
+    position: static;
+	}
+
+}

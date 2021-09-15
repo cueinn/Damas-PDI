@@ -1,0 +1,9 @@
+@import "tokens";
+
+body {
+	font-family: $font-family-main;
+	color: $color-neutral-dark;
+
+	background: $color-base url("../img/purty_wood.png");
+	background-size: 50%;
+}

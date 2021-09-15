@@ -1,0 +1,40 @@
+@import "tokens";
+
+.piece {
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+	background: $color-piece-light;
+	border-radius: 50%;
+	box-shadow: 18px 18px 18px rgba(83, 32, 12, 0.2), 10px 10px 10px rgba(83, 32, 12, 0.4), 2px 2px 2px rgba(83, 32, 12, 0.6);
+
+	&.dark {
+		background: $color-piece-dark;
+	}
+
+	&:after, &:before {
+		content: '';
+		position: absolute;
+		top: 10%;
+		right: 10%;
+		bottom: 10%;
+		left: 10%;
+		border: .6vw solid $color-transparency;
+		border-radius: 50%;
+	}
+	&:after {
+		top: 30%;
+		right: 30%;
+		bottom: 30%;
+		left: 30%;
+	}
+}
+
+@media only screen and (orientation: landscape) {
+	.piece {
+		&:after, &:before {
+			border-width: .6vh;
+		}
+	}
+}
