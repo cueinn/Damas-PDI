@@ -4,6 +4,8 @@ const tabuleiro = document.getElementById('boardContent');
 
 function cliquePeca(event){
   if (event.target.classList.contains('piece')) {
+    const pecas = Array.from(document.querySelectorAll('.piece'));
+    pecas.forEach((el) => el.classList.remove('selected'));
     event.target.classList.add('selected');
   }
   if (event.target.classList.contains('dark')) {
