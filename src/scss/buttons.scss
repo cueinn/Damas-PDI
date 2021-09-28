@@ -1,5 +1,9 @@
 @import "tokens";
 
+button {
+	cursor: pointer;
+}
+
 .btnReload, .btnHelp {
 	position: absolute;
 	bottom: 48px;

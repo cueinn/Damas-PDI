@@ -1,7 +1,9 @@
 const tabuleiro = document.getElementById('boardContent');
+const modalStart = document.getElementById('modalStart');
 
 // tabuleiro.innerHTML = '<div>OI!</div>'
 
+// Selecionar peças
 function cliquePeca(event){
   if (event.target.classList.contains('piece')) {
     const pecas = Array.from(document.querySelectorAll('.piece'));
@@ -16,4 +18,13 @@ function cliquePeca(event){
   }
 }
 
-tabuleiro.addEventListener('click', cliquePeca)
+// Fechar o modal
+function startGame(event) {
+  const buttonStart = document.getElementById('buttonStart');
+  if (buttonStart.click) {
+    modalStart.classList.add('off')
+  }
+}
+
+tabuleiro.addEventListener('click', cliquePeca);
+modalStart.addEventListener('click', startGame);
