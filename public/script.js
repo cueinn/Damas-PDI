@@ -1,5 +1,6 @@
 const tabuleiro = document.getElementById('boardContent');
 const modalStart = document.getElementById('modalStart');
+const buttonRestart = document.getElementById('restart')
 
 // tabuleiro.innerHTML = '<div>OI!</div>'
 
@@ -22,9 +23,16 @@ function cliquePeca(event){
 function startGame(event) {
   const buttonStart = document.getElementById('buttonStart');
   if (buttonStart.click) {
-    modalStart.classList.add('off')
+    modalStart.classList.add('off');
+  }
+}
+// Restart: abrir modal Start
+function restart(event) {
+  if (event.target.click) {
+    modalStart.classList.remove('off');
   }
 }
 
 tabuleiro.addEventListener('click', cliquePeca);
 modalStart.addEventListener('click', startGame);
+buttonRestart.addEventListener('click', restart);

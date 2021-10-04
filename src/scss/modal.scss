@@ -18,6 +18,11 @@
 
 	&.off {
 		display: none;
+		animation: modalOff .6s ease-in;
+	}
+	@keyframes off {
+		0% {opacity: 1; visibility: visible;}
+		100% {opacity: 0; visibility: hidden;}
 	}
 
 	.content {
@@ -57,6 +62,13 @@
 
 			background: none;
 			border: 1px solid $color-neutral-light;
+			box-shadow: 0 0 0 3 $color-neutral-light;
+			transition: all .3s;
+
+			&:hover {
+				letter-spacing: .7em;
+				box-shadow: 0 0 0 3px $color-neutral-light;
+			}
 		}
 	}
 }
