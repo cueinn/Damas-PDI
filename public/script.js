@@ -1,7 +1,8 @@
 const tabuleiro = document.getElementById('boardContent');
 const modalStart = document.getElementById('modalStart');
 const buttonRestart = document.getElementById('restart');
-const modalHelp = document.getElementById('modalHelp')
+const modalHelp = document.getElementById('modalHelp');
+const buttonHelp = document.getElementById('btnHelp');
 
 // tabuleiro.innerHTML = '<div>OI!</div>'
 
@@ -27,6 +28,7 @@ function closeModal(event) {
     event.target.closest('.modal').classList.add('off');
   }
 }
+
 // Restart: abrir modal Start
 function restart(event) {
   if (event.target.click) {
@@ -34,7 +36,15 @@ function restart(event) {
   }
 }
 
+// Abrir modal de ajuda
+function openHelp(event) {
+  if (buttonHelp.click) {
+    modalHelp.classList.remove('off');
+  }
+}
+
 tabuleiro.addEventListener('click', cliquePeca);
 modalStart.addEventListener('click', closeModal);
 modalHelp.addEventListener('click', closeModal);
 buttonRestart.addEventListener('click', restart);
+buttonHelp.addEventListener('click', openHelp)

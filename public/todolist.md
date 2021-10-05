@@ -1,15 +1,12 @@
 # ToDo List
-- abrir modal help
 
 # Done
 - Fechar modal ao clicar em "jogar"
 - Clicar nas  peças brancas
 - Fazer toggle global
 - Fazer o modal abrir
-
-Modal help
-  fechar ao clicar em fechar
-  fechar ao clicar fora (tudo o que não está dentro)
+- abrir modal help
+- Fechar modal global
 
 Renderizar o tabuleiro todo via JS
   Dizer onde vai renderizar
