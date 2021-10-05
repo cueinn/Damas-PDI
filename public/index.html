@@ -35,21 +35,21 @@
       </div>
     </header>
 
-    <div class="modal startScreen" id="modalStart">
+    <div class="modal startScreen off" id="modalStart">
       <div class="content">
         <div class="logo">
           <div class="logoSymbol"></div>
           <h1>Damas</h1>
         </div>
         <p>O objetivo é capturar ou imobilizar as peças do adversário. O jogador que conseguir capturar todas as peças do inimigo ganha a partida.</p>
-        <button class="startButton" id="buttonStart">Jogar</button>
+        <button class="startButton closeModal" id="buttonStart">Jogar</button>
       </div>
     </div>
 
-    <div class="modal help off">
-      <a href="#" class="closeOverlay"></a>
+    <div class="modal help" id="modalHelp">
+      <a href="#" class="closeOverlay closeModal"></a>
       <div class="helpContent">
-        <img src="assets/help-inverse.png" alt="ícone: interrogação" />
+        <img src="img/help-inverse.png" alt="ícone: interrogação" />
         <ul>
           <li>A peça movimenta-se em diagonal, sobre as casas escuras, para a frente, e uma casa de cada vez.</li>
           <li>A peça pode capturar a peça do adversário movendo-se para frente e permitindo também capturar a peça do adversário movendo-se para trás.</li>

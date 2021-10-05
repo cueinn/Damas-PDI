@@ -1,12 +1,11 @@
 # ToDo List
+- abrir modal help
 
 # Done
 - Fechar modal ao clicar em "jogar"
 - Clicar nas  peças brancas
 - Fazer toggle global
 - Fazer o modal abrir
-
-Modal
 
 Modal help
   fechar ao clicar em fechar
