@@ -25,7 +25,16 @@ function cliquePeca(event){
 // Fechar o modal
 function closeModal(event) {
   if (event.target.classList.contains('closeModal')) {
-    event.target.closest('.modal').classList.add('off');
+    event.target.closest('.modal').animate([
+      { opacity: '1' },
+      { opacity: '0'},
+    ], {
+      duration: 300,
+      easing: 'ease-out'
+    });
+    setTimeout(() => {
+      event.target.closest('.modal').classList.add('off');
+    }, 300);
   }
 }
 
