@@ -26,7 +26,6 @@ function cliquePeca(event){
 function closeModal(event) {
   if (event.target.classList.contains('closeModal')) {
     event.target.closest('.modal').animate([
-      { opacity: '1' },
       { opacity: '0'},
     ], {
       duration: 300,
@@ -42,6 +41,15 @@ function closeModal(event) {
 function restart(event) {
   if (event.target.click) {
     modalStart.classList.remove('off');
+    modalStart.animate(
+      [
+        { opacity: '0' },
+        { opacity: '1' }
+      ], {
+        duration: 300,
+        easing: 'ease-out'
+      }
+    )
   }
 }
 
@@ -49,6 +57,15 @@ function restart(event) {
 function openHelp(event) {
   if (buttonHelp.click) {
     modalHelp.classList.remove('off');
+    modalHelp.animate(
+      [
+        { opacity: '0' },
+        { opacity: '1' }
+      ], {
+        duration: 300,
+        easing: 'ease-out'
+      }
+    )
   }
 }
 
