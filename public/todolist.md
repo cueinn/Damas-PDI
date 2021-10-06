@@ -8,6 +8,7 @@
 - abrir modal help
 - Fechar modal global
 - Animação de fechar modal
+- Animação de abrir modal
 
 Renderizar o tabuleiro todo via JS
   Dizer onde vai renderizar
