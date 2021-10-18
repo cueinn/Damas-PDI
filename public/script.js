@@ -1,4 +1,3 @@
-// const tabuleiro = document.getElementById('boardContent');
 const modalStart = document.getElementById('modalStart');
 const buttonStart = document.getElementById('buttonStart');
 const buttonRestart = document.getElementById('restart');
@@ -9,28 +8,19 @@ const boardWrap = document.getElementById('boardWrap');
 function startGame(event) {
   if (buttonStart.click) {
     
-    // Cria o tabuleiro
-    boardWrap.innerHTML = '<div class="board"><div class="boardContent" id="boardContent"></div></div>';
-    
-    // Insere linhas
-    var rows = '';
-    for (let i = 0; i < 8; i++) {
-      rows = rows + `<div class="row" id="row${i}"></div>`
+    var squares = '';
+    for(let i = 0; i < 8; i++) {
+      var squares = squares + '<div class="square"></div>';
     }
-    const boardContent = document.getElementById('boardContent');
-    boardContent.innerHTML = rows;
 
-    // Função para criar 8 casas
-    function createSquares(element) {
-      var squares = '';
-      for (let i = 0; i < 8; i++) {
-        var squares = squares + `<div class="square"></div>`;
-      }
-      element.innerHTML = squares;
+    var rows = '';
+    for(let i = 0; i < 8; i++) {
+      var rows = rows + `<div class="row">${squares}</div>`;
     }
-    // Colocando casas nas linhas
-    var allRows = document.getElementsByClassName('row');
-    Array.prototype.forEach.call(allRows, createSquares);
+
+    const boardHtmlContent = `<div class="board"><div class="boardContent" id="boardContent">${rows}</div></div>`;
+    boardWrap.innerHTML = boardHtmlContent;
+
   }
 }
 
