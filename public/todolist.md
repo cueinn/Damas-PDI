@@ -1,4 +1,9 @@
 # ToDo List
+- melhorar a performance da construção do tabuleiro (fazer uma renderização só)
+- renderizar as peças (colocar alguns ifs)
+- Estudar https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes.
+  - O que é uma peça? Quais são as propriedades de uma peça. quais são as ações de uma peça.
+
 
 # Done
 - Fechar modal ao clicar em "jogar"
@@ -9,15 +14,3 @@
 - Fechar modal global
 - Animação de fechar modal
 - Animação de abrir modal
-
-Renderizar o tabuleiro todo via JS
-  Dizer onde vai renderizar
-  Montar a marcação no JS
-  
-
--> Clicar nas peças brancas.
--> Modal abrir.
--> Modal fechar (com botão jogar).
--> Modal de instruções (botão de fechar).
--> Fechar ao clicar fora do modal (tudo que não está dentro do pai, fecha o modal).
--> Renderizar o tabuleiro via javascript (appendChild, innerHTML).

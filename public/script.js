@@ -15,10 +15,22 @@ function startGame(event) {
     // Insere linhas
     var rows = '';
     for (let i = 0; i < 8; i++) {
-      rows = rows + '<div class="row"></div>'
+      rows = rows + `<div class="row" id="row${i}"></div>`
     }
     const boardContent = document.getElementById('boardContent');
     boardContent.innerHTML = rows;
+
+    // Função para criar 8 casas
+    function createSquares(element) {
+      var squares = '';
+      for (let i = 0; i < 8; i++) {
+        var squares = squares + `<div class="square"></div>`;
+      }
+      element.innerHTML = squares;
+    }
+    // Colocando casas nas linhas
+    var allRows = document.getElementsByClassName('row');
+    Array.prototype.forEach.call(allRows, createSquares);
   }
 }
 
