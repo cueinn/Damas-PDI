@@ -12,24 +12,28 @@ function startGame(event) {
   if (buttonStart.click) {
     
     // Cria as casas
-    squares = '';
+    squareGroup = '';
     function rowOdd(r) {
       for (let i = 1; i < 9; i++){
         if (i%2 == 0) {
-          squares = squares + `<div class="square black" id="${r}${i}"></div>`;
+          let square = new Square('black', r*10+i);
+          squareGroup += square.createSquare();
         }
         else {
-          squares = squares + `<div class="square" id="${r}${i}"></div>`;
+          let square = new Square('white', r*10+i);
+          squareGroup += square.createSquare();
         }
       }
     }
     function rowEven(r) {
       for (let i = 1; i < 9; i++){
         if (i%2 == 1) {
-          squares = squares + `<div class="square black" id="${r}${i}"></div>`;
+          let square = new Square('black', r*10+i);
+          squareGroup += square.createSquare();
         }
         else {
-          squares = squares + `<div class="square" id="${r}${i}"></div>`;
+          let square = new Square('white', r*10+i);
+          squareGroup += square.createSquare();
         }
       }
     }
@@ -41,7 +45,7 @@ function startGame(event) {
 
   }
 
-  const boardHtmlContent = `<div class="boardContent" id="boardContent">${squares}</div>`;
+  const boardHtmlContent = `<div class="boardContent" id="boardContent">${squareGroup}</div>`;
   let board = document.createElement('div'); 
   board.id = 'board';
   board.className = 'board';
@@ -109,35 +113,6 @@ function openHelp(event) {
         easing: 'ease-out'
       }
     )
-  }
-}
-
-class Piece {
-  constructor(color, position) {
-    this.color = color;
-    this.position = position;
-  }
-
-  createPiece() {
-    if (this.color == 'white') {
-      return('<div class="piece"></div>')
-    }
-    if (this.color == 'black') {
-      return('<div class="piece dark"></div>')
-    }
-  }
-}
-
-const testPiece = new Piece('black', 11);
-
-class Square {
-  constructor(color, position) {
-    this.color = color;
-    this.position = position;
-  }
-  
-  createSquare() {
-    return(`<div class="square ${this.color}" id="${this.position}"></div>`)
   }
 }
 
