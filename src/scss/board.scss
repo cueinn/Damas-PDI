@@ -20,22 +20,17 @@
 		width: 100%;
 		height: 100%;
 		border: .6vw solid $color-neutral-dark;
+		display: flex;
+		flex-wrap: wrap;
 
-		.row {
-			display: flex;
-			align-items: center;
-			justify-content: center;
+		.square {
+			width: 12.5%;
 			height: 12.5%;
 
-			.square {
-				width: 12.5%;
-				height: 100%;
-			}
-		}
-			.row:nth-child(odd) > .square:nth-child(odd),
-			.row:nth-child(even) > .square:nth-child(even) {
+				&.black {
 					background: $color-neutral-dark url("../img/dark_wood.png");
 				}
+			}
 	}
 }
 

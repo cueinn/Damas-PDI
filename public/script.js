@@ -1,86 +1,52 @@
+const body = document.body;
 const modalStart = document.getElementById('modalStart');
-const tabuleiro = document.getElementById('boardWrap');
+const tabuleiro = document.getElementById('board');
 const buttonStart = document.getElementById('buttonStart');
 const buttonRestart = document.getElementById('restart');
 const modalHelp = document.getElementById('modalHelp');
 const buttonHelp = document.getElementById('btnHelp');
 const boardWrap = document.getElementById('boardWrap');
 
+// Cria o tabuleiro
 function startGame(event) {
   if (buttonStart.click) {
     
-    var squares1 = '';
-    for(let i = 1; i < 9; i++) {
-      if (i % 2 == 1)  {
-        var squares1 = squares1 + '<div class="square"><div class="piece dark"></div></div>';  
+    // Cria as casas
+    squares = '';
+    function rowOdd(r) {
+      for (let i = 1; i < 9; i++){
+        if (i%2 == 0) {
+          squares = squares + `<div class="square black" id="${r}${i}"></div>`;
+        }
+        else {
+          squares = squares + `<div class="square" id="${r}${i}"></div>`;
+        }
       }
-      else {
-        var squares1 = squares1 + '<div class="square"></div>';
+    }
+    function rowEven(r) {
+      for (let i = 1; i < 9; i++){
+        if (i%2 == 1) {
+          squares = squares + `<div class="square black" id="${r}${i}"></div>`;
+        }
+        else {
+          squares = squares + `<div class="square" id="${r}${i}"></div>`;
+        }
       }
     }
     
-    var squares2 = '';
-    for(let i = 1; i < 9; i++) {
-      if (i % 2 == 0)  {
-        var squares2 = squares2 + '<div class="square"><div class="piece dark"></div></div>';  
-      }
-      else {
-        var squares2 = squares2 + '<div class="square"></div>';
-      }
+    for (let z = 1; z < 9; z++) {
+      if (z%2 == 1)  { rowOdd(z) }
+      else { rowEven(z) }
     }
-    
-    var squares7 = '';
-    for(let i = 1; i < 9; i++) {
-      if (i % 2 == 1)  {
-        var squares7 = squares7 + '<div class="square"><div class="piece"></div></div>';  
-      }
-      else {
-        var squares7 = squares7 + '<div class="square"></div>';
-      }
-    }
-    
-    var squares8 = '';
-    for(let i = 1; i < 9; i++) {
-      if (i % 2 == 0)  {
-        var squares8 = squares8 + '<div class="square"><div class="piece"></div></div>';  
-      }
-      else {
-        var squares8 = squares8 + '<div class="square"></div>';
-      }
-    }
-    
-    var squaresDefault = '';
-    for(let i = 0; i < 8; i++) {
-      var squaresDefault = squaresDefault + '<div class="square"></div>';
-    }
-
-    var rows = '';
-    for(let i = 1; i < 9; i++) {
-
-      switch (i) {
-        case 1:
-          var rows = rows + `<div class="row" id="row${i}">${squares1}</div>`;
-          break;
-        case 2:
-          var rows = rows + `<div class="row" id="row${i}">${squares2}</div>`;
-          break;
-        case 7:
-          var rows = rows + `<div class="row">${squares7}</div>`;
-          break;
-        case 8:
-          var rows = rows + `<div class="row">${squares8}</div>`;
-          break;
-        default:
-          var rows = rows + `<div class="row" id="row${i}">${squaresDefault}</div>`;
-          break;
-      }
-
-    }
-
-    const boardHtmlContent = `<div class="board"><div class="boardContent" id="boardContent">${rows}</div></div>`;
-    boardWrap.innerHTML = boardHtmlContent;
 
   }
+
+  const boardHtmlContent = `<div class="boardContent" id="boardContent">${squares}</div>`;
+  let board = document.createElement('div'); 
+  board.id = 'board';
+  board.className = 'board';
+  board.innerHTML = boardHtmlContent;
+  document.body.appendChild(board);
 }
 
 // Selecionar peças
@@ -146,8 +112,38 @@ function openHelp(event) {
   }
 }
 
+class Piece {
+  constructor(color, position) {
+    this.color = color;
+    this.position = position;
+  }
+
+  createPiece() {
+    if (this.color == 'white') {
+      return('<div class="piece"></div>')
+    }
+    if (this.color == 'black') {
+      return('<div class="piece dark"></div>')
+    }
+  }
+}
+
+const testPiece = new Piece('black', 11);
+
+class Square {
+  constructor(color, position) {
+    this.color = color;
+    this.position = position;
+  }
+  
+  createSquare() {
+    return(`<div class="square ${this.color}" id="${this.position}"></div>`)
+  }
+}
+
+
 buttonStart.addEventListener('click', startGame);
-tabuleiro.addEventListener('click', cliquePeca);
+// tabuleiro.addEventListener('click', cliquePeca);
 modalStart.addEventListener('click', closeModal);
 modalHelp.addEventListener('click', closeModal);
 buttonRestart.addEventListener('click', restart);
