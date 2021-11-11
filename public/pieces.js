@@ -5,20 +5,32 @@ class Piece {
   }
 
   createPiece() {
-    if (this.color == 'white') {
-      return('<div class="piece"></div>')
-    }
-    if (this.color == 'black') {
-      return('<div class="piece dark"></div>')
-    }
+    return(`<div class="piece ${this.color}"></div>`)
   }
 
   assemblePiece() {
-    let squareToAssemble = document.getElementById(`square${this.position}`);
+    let squareToAssemble = document.getElementById(`${this.position}`);
     let pieceHtml = this.createPiece();
 
     squareToAssemble.innerHTML = pieceHtml;
   }
 }
 
-const testPiece = new Piece('black', 12);
+const pieceName = [
+    "cafunga",
+    "quixote",
+    "sacoleiro",
+    "ualace",
+    "alvyn",
+    "alasse",
+    "vaceran",
+    "tiberius",
+    "gaigacs",
+    "capataz",
+    "joao",
+    "francisco",
+    "carlos",
+    "rafael",
+    "jose",
+    "barizon"
+  ]
