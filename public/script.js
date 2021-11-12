@@ -51,6 +51,11 @@ function startGame(event) {
   board.className = 'board';
   board.innerHTML = boardHtmlContent;
   document.body.appendChild(board);
+
+  pieceBox.forEach((el) => {
+    el.assemblePiece()
+  })
+  
 }
 
 // Selecionar peças
