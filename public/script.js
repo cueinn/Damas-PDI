@@ -1,6 +1,5 @@
 const body = document.body;
 const modalStart = document.getElementById('modalStart');
-const tabuleiro = document.getElementById('board');
 const buttonStart = document.getElementById('buttonStart');
 const buttonRestart = document.getElementById('restart');
 const modalHelp = document.getElementById('modalHelp');
@@ -52,9 +51,7 @@ function startGame(event) {
   board.innerHTML = boardHtmlContent;
   document.body.appendChild(board);
 
-  pieceBox.forEach((el) => {
-    el.assemblePiece()
-  })
+  drawPieces();
   
 }
 
@@ -64,12 +61,7 @@ function cliquePeca(event){
     const pecas = Array.from(document.querySelectorAll('.piece'));
     pecas.forEach((el) => el.classList.remove('selected'));
     event.target.classList.add('selected');
-  }
-  if (event.target.classList.contains('dark')) {
-    console.log("clicou em uma peça preta: "+event.target.classList);
-  }
-  if (event.target.classList.contains('light')) {
-    console.log("clicou em uma peça clara "+event.target.classList);
+    console.log(`${event.target.id} selecionado`)
   }
 }
 
@@ -123,7 +115,7 @@ function openHelp(event) {
 
 
 buttonStart.addEventListener('click', startGame);
-// tabuleiro.addEventListener('click', cliquePeca);
+document.addEventListener('click', cliquePeca);
 modalStart.addEventListener('click', closeModal);
 modalHelp.addEventListener('click', closeModal);
 buttonRestart.addEventListener('click', restart);

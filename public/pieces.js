@@ -35,3 +35,15 @@ const jose = new Piece('white', 85, 'jose');
 const marlene = new Piece('white', 87, 'marlene');
 
 const pieceBox = [horacio, timoteo, ofelia, ualace, ratazana, mariano, felicio, tiberius, haroldo, capataz, joao, chico, carlos, rafael, jose, marlene]
+
+function drawPieces() {
+  pieceBox.forEach((el) => {
+    el.assemblePiece()
+  })
+}
+
+function redrawPieces(params) {
+  document.querySelectorAll('.piece').forEach(e => e.remove());
+  drawPieces();
+  console.log('Peças reposicionadas');
+}
