@@ -20,9 +20,8 @@ function checkPossibleMoviment(piece) {
   
   var possibleMoviments = [];
 
-  if(squareA) {possibleMoviments.push(squareA.id)};
-  if(squareB) {possibleMoviments.push(squareB.id)};
-
+  if(squareA && !squareA.hasChildNodes()) {possibleMoviments.push(squareA.id)};
+  if(squareB && !squareB.hasChildNodes()) {possibleMoviments.push(squareB.id)};
 
   console.log(`Movimento possível para ${possibleMoviments}`)
 }
