@@ -15,6 +15,51 @@ class Piece {
 
     squareToAssemble.innerHTML = pieceHtml;
   }
+
+  checkPossibleMoviment() {
+    let positionA = 0;
+    let positionB = 0;
+    if (this.color == 'black'){
+      positionA = this.position + 9;
+      positionB = this.position + 11;
+    }
+    else {
+      positionA = this.position - 9;
+      positionB = this.position - 11;
+    }
+    
+    let squareA = document.getElementById(`${positionA}`);
+    let squareB = document.getElementById(`${positionB}`);
+
+    var possibleMoviments = [];
+  
+    if(squareA && !squareA.hasChildNodes()) {possibleMoviments.push(squareA.id)};
+    if(squareB && !squareB.hasChildNodes()) {possibleMoviments.push(squareB.id)};
+  
+    return possibleMoviments
+  }
+
+  move() {
+
+    let possibleMoviments = this.checkPossibleMoviment();
+    
+    if (possibleMoviments.length === 0){
+      console.log('Nenhum movimento possivel. Escolha outra peça.')
+    }
+    else {
+      let moviment = prompt(`Movimento possível para ${possibleMoviments}. Para onde mover?`);
+      
+      if (moviment == possibleMoviments[0] || moviment == possibleMoviments[1]) {
+        this.position = moviment;
+        redrawPieces();
+      }
+      else {
+        let moviment = alert(`Esse movimento não é possível :(`);
+        this.move()
+      }
+    }
+
+  }
 }
 
 const horacio = new Piece('black', 12, 'horacio');

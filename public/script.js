@@ -116,7 +116,6 @@ function openHelp(event) {
   }
 }
 
-
 buttonStart.addEventListener('click', startGame);
 document.addEventListener('click', cliquePeca);
 modalStart.addEventListener('click', closeModal);
