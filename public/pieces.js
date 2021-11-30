@@ -20,8 +20,8 @@ class Piece {
     let positionA = 0;
     let positionB = 0;
     if (this.color == 'black'){
-      positionA = this.position + 9;
-      positionB = this.position + 11;
+      positionA = this.position - -9;
+      positionB = this.position - -11;
     }
     else {
       positionA = this.position - 9;
