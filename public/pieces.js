@@ -41,23 +41,30 @@ class Piece {
 
   move() {
 
-    let possibleMoviments = this.checkPossibleMoviment();
-    
-    if (possibleMoviments.length === 0){
-      console.log('Nenhum movimento possivel. Escolha outra peça.')
-    }
-    else {
-      let moviment = prompt(`Movimento possível para ${possibleMoviments}. Para onde mover?`);
+    if (this.color == game.playerTurn()) {
+      let possibleMoviments = this.checkPossibleMoviment();
       
-      if (moviment == possibleMoviments[0] || moviment == possibleMoviments[1]) {
-        this.position = moviment;
-        redrawPieces();
+      if (possibleMoviments.length === 0){
+        console.log('Nenhum movimento possivel. Escolha outra peça.')
       }
       else {
-        let moviment = alert(`Esse movimento não é possível :(`);
-        this.move()
+        let moviment = prompt(`Movimento possível para ${possibleMoviments}. Para onde mover?`);
+        
+        if (moviment == possibleMoviments[0] || moviment == possibleMoviments[1]) {
+          this.position = moviment;
+          redrawPieces();
+        }
+        else {
+          let moviment = alert(`Esse movimento não é possível :(`);
+          this.move()
+        }
       }
     }
+    else {
+      console.log(`Vez das peças ${game.playerTurn()}`)
+    }
+
+    game.passTurn();
 
   }
 }

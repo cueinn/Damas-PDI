@@ -6,6 +6,19 @@ const modalHelp = document.getElementById('modalHelp');
 const buttonHelp = document.getElementById('btnHelp');
 const boardWrap = document.getElementById('boardWrap');
 
+const game = {
+  turn: 1,
+  passTurn: function passTurn() {
+    this.turn += 1;
+  },
+  playerTurn: function playerTurn() {
+    if (this.turn % 2 == 0) {
+      return('black')
+    }
+    else return('white')
+  }
+}
+
 // Cria o tabuleiro
 function startGame(event) {
   if (buttonStart.click) {
